@@ -6,14 +6,26 @@ import './styles/board-style.css';
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      news: [],
+    };
+  }
+
+  async getNews() {
+    const array = await getData();
+    await this.setState({ news: array });
+    // const { news } = this.state;
+    console.log(array);
   }
 
   render() {
-    getData();
+    const { news } = this.state;
+    console.log(news);
+    // news.map((i) => console.log(i));
     return (
       <div className="board-container">
-        <Item />
+        <div role="button" tabIndex={0} onClick={this.getNews.bind(this)} onKeyDown={this.getNews} className="btn">Click</div>
+        <Item news={news} />
       </div>
     );
   }

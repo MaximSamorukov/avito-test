@@ -1,55 +1,56 @@
 const axios = require('axios');
 
-// const howManyNews = 100;
+// const howManyNews = 15;
 
-async function getData() {
+async function getData(arr = []) {
   const url = 'https://hacker-news.firebaseio.com/v0/';
-  const number = await axios({
-    method: 'get',
-    url: `${url}maxitem.json`,
-    print: 'pretty',
-  });
-  let lastNumber = number.data;
-  // const prevNumber = lastNumber - howManyNews;
-  const newsArray = [];
-  // while (newsArray.length <= 100) {
-  // console.log(newsArray.length);
-  // let i
-  for (let i = 1; newsArray.length <= 10; i += 1) {
-    axios({
-      method: 'get',
-      url: `${url}item/${lastNumber}.json`,
-      print: 'pretty',
-    })
-      .then((response) => {
-        if (response.data.type === 'story') {
-          console.log(response.data);
-          newsArray.push(response);
-        }
-        // console.log(newsArray);
-      });
-    lastNumber -= 1;
-    // console.log(lastNumber);
-  }
-  // }
-  // console.log(newsArray);
-  // const news = await axios({
+  // const number = await axios({
   //   method: 'get',
-  //   url: `${url}item/${i}`,
+  //   url: `${url}maxitem.json?print=pretty`,
   //   print: 'pretty',
   // });
+  // const lastNumber = num === 'notyet' ? number.data : num;
+  const newsArray = arr.length === 0 ? [] : arr;
 
-  // newsArray = await newsArray.map(async (i) => {
-  //   const news = await axios({
-  //     method: 'get',
-  //     url: `${url}item/${i}.json`,
-  //     print: 'pretty',
-  //   });
-  //   console.log(`${news.data.type} ${i}`);
-  //   return news;
-  // });
-  // await console.log(newsArray);
+  const getNews = async () => {
+    try {
+      // console.log("2");
+      const response = await axios({
+        method: 'get',
+        // url: `${url}item/${ln}.json?print=pretty`,
+        url: `${url}newstories.json?print=pretty`,
+        // print: 'pretty',
+      });
+      // console.log("3");
+      // console.log(response.data.type);
+      // console.log(ln - 1);
+      // console.log("4");
+      // console.log(response.data.type === 'story');
+      // if (response.data.type === 'story') {
+        // console.log("5'");
+      newsArray.push(response);
+      // console.log("6");
 
+      // console.log(lastNumber);
+      // console.log("7");
+      // console.log(lastNumber);
+      return;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  // console.log(lastNumber);
+  getNews();
+  // console.log(newsArray.length <= howManyNews);
+  // if (newsArray.length < howManyNews) {
+  //   // console.log('hi');
+  //   getData(lastNumber - 1, newsArray);
+  // }
+  // if (newsArray.length >= howManyNews) {
+  //   console.log(newsArray);
+  //   return newsArray;
+  // }
+  console.log(newsArray);
   return newsArray;
 }
 

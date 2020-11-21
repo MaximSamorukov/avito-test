@@ -1,3 +1,9 @@
 .board-style{
   font-size: 20px;
 }
+
+.btn {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+}

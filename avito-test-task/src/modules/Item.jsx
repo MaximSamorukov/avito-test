@@ -1,4 +1,5 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 import './styles/item-style.css';
 
 class Item extends React.Component {
@@ -8,10 +9,11 @@ class Item extends React.Component {
   }
 
   render() {
-    const l = 'haha';
+    // const { news } = this.props;
+    // console.log(news);
     return (
       <div className="item-container">
-        {l}
+        l
       </div>
     );
   }
