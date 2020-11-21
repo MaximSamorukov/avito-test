@@ -12,22 +12,26 @@ async function getData() {
   let lastNumber = number.data;
   // const prevNumber = lastNumber - howManyNews;
   const newsArray = [];
-  while (newsArray.length <= 100) {
-    console.log(newsArray.length);
-    // let i
+  // while (newsArray.length <= 100) {
+  // console.log(newsArray.length);
+  // let i
+  for (let i = 1; newsArray.length <= 10; i += 1) {
     axios({
       method: 'get',
       url: `${url}item/${lastNumber}.json`,
       print: 'pretty',
     })
       .then((response) => {
-        console.log(response.data.type === 'story');
-        // if (response.data.type === 'story') {
-        newsArray.push(response);
-        // }
+        if (response.data.type === 'story') {
+          console.log(response.data);
+          newsArray.push(response);
+        }
+        // console.log(newsArray);
       });
     lastNumber -= 1;
+    // console.log(lastNumber);
   }
+  // }
   // console.log(newsArray);
   // const news = await axios({
   //   method: 'get',
@@ -45,6 +49,7 @@ async function getData() {
   //   return news;
   // });
   // await console.log(newsArray);
+
   return newsArray;
 }
 
