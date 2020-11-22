@@ -19,7 +19,7 @@ class Board extends React.Component {
       return i;
     };
     const array = await getData();
-    const news = array.slice(0, 100);
+    const news = array.slice(0, 20);
     const newsNew = await news.map(async (i) => {
       const r = await item(i);
       return r;

@@ -2,8 +2,17 @@
   font-size: 20px;
 }
 
+
+.board-container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .btn {
   width: 100px;
-  height: 100px;
+  height: 20px;
   background-color: aquamarine;
+  margin-right: auto;
+  margin-left: auto;
 }
