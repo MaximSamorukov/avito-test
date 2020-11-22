@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './styles/item-style.css';
 
 class Item extends React.Component {
@@ -9,14 +9,21 @@ class Item extends React.Component {
   }
 
   render() {
-    // const { news } = this.props;
+    const { news } = this.props;
+    const {
+      title, by, score, type, url,
+    } = news;
     // console.log(news);
     return (
       <div className="item-container">
-        l
+        {`${type}; ${title}; ${by}; ${url}; ${score}`}
       </div>
     );
   }
 }
+
+Item.propTypes = {
+  news: PropTypes.func.isRequired,
+};
 
 export default Item;
