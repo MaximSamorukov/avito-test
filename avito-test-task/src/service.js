@@ -9,8 +9,10 @@ async function getData() {
       const response = await axios({
         method: 'get',
         // url: `${url}item/${ln}.json?print=pretty`,
-        url: `${url}newstories.json?print=pretty`,
-        // print: 'pretty',
+        url: `${url}newstories.json`,
+        params: {
+          print: 'pretty',
+        },
       });
       newsArray = (response.data);
     } catch (e) {
@@ -29,8 +31,10 @@ const getItem = async (number) => {
     try {
       const response = await axios({
         method: 'get',
-        url: `${url}item/${num}.json?print=pretty`,
-        // print: 'pretty',
+        url: `${url}item/${num}.json`,
+        params: {
+          print: 'pretty',
+        },
       });
       item = await response.data;
     } catch (e) {
