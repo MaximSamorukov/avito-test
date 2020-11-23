@@ -1,6 +1,7 @@
 import React from 'react';
 import Item from './Item';
 import Header from './Header';
+import Footer from './Footer';
 import { getData, getItem } from '../service';
 import './styles/board-style.css';
 
@@ -9,9 +10,15 @@ const _ = require('lodash');
 class Board extends React.Component {
   constructor(props) {
     super(props);
+    this.getNews = this.getNews.bind(this);
     this.state = {
       newsItem: [],
     };
+  }
+
+  getNext(e) {
+    console.log(e);
+    console.log(this);
   }
 
   async getNews() {
@@ -33,11 +40,13 @@ class Board extends React.Component {
     const { newsItem } = this.state;
     return (
       <>
-        <Header />
+        <Header getItemsFromStore={this.getNews} />
         <div className="board-container">
-          <div role="button" tabIndex={0} onClick={this.getNews.bind(this)} onKeyDown={this.getNews} className="btn">Click</div>
           {newsItem.length > 0 && newsItem.map((i) => <Item key={_.uniqueId('key_')} news={i} />)}
+          {newsItem.length > 0 && <div role="button" tabIndex={0} onClick={this.getNext.bind(this)} onKeyDown={this.getNext} className="btn-next">More</div>}
+          <div className="btn-line" />
         </div>
+        <Footer />
       </>
     );
   }
