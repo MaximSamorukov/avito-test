@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import Header from './Header';
 import { getData, getItem } from '../service';
 import './styles/board-style.css';
 
@@ -31,10 +32,13 @@ class Board extends React.Component {
   render() {
     const { newsItem } = this.state;
     return (
-      <div className="board-container">
-        <div role="button" tabIndex={0} onClick={this.getNews.bind(this)} onKeyDown={this.getNews} className="btn">Click</div>
-        {newsItem.length > 0 && newsItem.map((i) => <Item key={_.uniqueId('key_')} news={i} />)}
-      </div>
+      <>
+        <Header />
+        <div className="board-container">
+          <div role="button" tabIndex={0} onClick={this.getNews.bind(this)} onKeyDown={this.getNews} className="btn">Click</div>
+          {newsItem.length > 0 && newsItem.map((i) => <Item key={_.uniqueId('key_')} news={i} />)}
+        </div>
+      </>
     );
   }
 }
