@@ -1,10 +1,11 @@
 .item-container {
   margin-right: auto;
   margin-left: auto;
-  width: 100%;
-  min-width: 100%;
+  width: 674px;
+  min-width: 674px;
+  max-width: 674px;
   height: 100%;
-  background-color: burlywood;
+
   margin-top: 10px;
 }
 .item-body {
@@ -14,6 +15,7 @@
   flex-direction: column;
   align-self: stretch;
   justify-content: flex-start;
+  background-color: burlywood;
 }
 .first-line {
   display: flex;
@@ -57,6 +59,10 @@
   margin-bottom: 5px;
 }
 
-.item-comments {
+.item-element {
+  cursor: pointer;
+}
+
+.item-comments, .item-kids {
   margin-left: 20px;
 }

@@ -4,10 +4,13 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   height: 100%;
-  width: 100%;
-  min-width: 100%;
+  width: 674px;
+  min-width: 674px;
+  max-width: 674px;
   background-color: chocolate;
   margin-top: 5px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 

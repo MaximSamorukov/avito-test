@@ -1,0 +1,13 @@
+.comment-container {
+  height: 100%;
+  width: 100%;
+  /* background-color: chartreuse; */
+  margin-top: 5px;
+}
+
+.main-comment {
+  height: 100%;
+  width: 100%;
+  background-color: chartreuse;
+  margin-top: 5px;
+}
