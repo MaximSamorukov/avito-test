@@ -47,7 +47,7 @@ class Comment extends React.Component {
           <div className="comment-by">{by}</div>
           <div className="comment-type">{type}</div>
           <div className="comment-time">{new Date(time).getHours()}</div>
-          <div className="comment-text">{text}</div>
+          <div className="comment-text" dangerouslySetInnerHTML={{ __html: text }} />
         </div>
         {(kids && kids.length > 0) && kids.map((i) => <Comment item={i} />) }
       </div>
