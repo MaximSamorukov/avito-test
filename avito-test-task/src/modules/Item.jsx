@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
+import { getItem } from '../service';
 import './styles/item-style.css';
 
 class Item extends React.Component {
@@ -8,7 +9,18 @@ class Item extends React.Component {
     super(props);
     this.state = {
       showComments: false,
+      item: {
+        title: '', by: '', score: 0, type: '', url: '', descendants: 0, time: 0,
+      },
     };
+  }
+
+  componentDidMount() {
+    const { news } = this.props;
+    const newItem = getItem(news);
+    newItem.then((i) => {
+      this.setState({ item: i });
+    });
   }
 
   onclick = (kids) => (e) => {
@@ -18,23 +30,24 @@ class Item extends React.Component {
     this.setState({ showComments: !showComments });
   }
 
+  getDataOnItem = async (n) => {
+    const i = await Promise.resolve(n);
+    return i;
+  }
+
   render() {
-    const { showComments } = this.state;
-    const { news } = this.props;
+    const { item, showComments } = this.state;
+    const { func } = this.props;
     let kids = [];
     const {
       title, by, score, type, url, descendants, time,
-    } = news;
+    } = item;
     if (descendants > 0) {
-      kids = news.kids;
+      kids = item.kids;
     }
-    // console.log(descendants);
-    // console.log(typeof descendants);
-    // console.log(parseInt(descendants, 10) > 1000);
     const comments = parseInt(descendants, 10) > 1000 ? 'many' : descendants;
-    // console.log(news);
     return (
-      <div className="item-container">
+      <div className="item-container" onClick={func(item)} onKeyDown={func(item)} tabIndex={0} role="button">
         <div className="item-body">
           <div className="first-line">
             <div className="item-element item-title">{title}</div>
@@ -58,10 +71,12 @@ class Item extends React.Component {
 }
 Item.defaultProps = {
   news: {},
+  func: {},
 };
 
 Item.propTypes = {
   news: PropTypes.checkPropTypes(),
+  func: PropTypes.checkPropTypes(),
 };
 
 export default Item;
