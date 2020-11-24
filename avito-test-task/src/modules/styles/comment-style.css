@@ -1,13 +1,78 @@
 .comment-container {
   height: 100%;
   width: 100%;
+  min-width: 100%;
   /* background-color: chartreuse; */
   margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .main-comment {
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
   background-color: chartreuse;
   margin-top: 5px;
+}
+
+.comment-level-1 {
+  width: 93%;
+  min-width: 93%;
+}
+
+.comment-level-2 {
+  width: 86%;
+  min-width: 86%;
+}
+
+.comment-level-3 {
+  width: 79%;
+  min-width: 79%;
+}
+
+.comment-level-4 {
+  width: 72%;
+  min-width: 72%;
+}
+
+.comment-level-5 {
+  width: 65%;
+  min-width: 65%;
+}
+
+.comment-level-6 {
+  width: 58%;
+  min-width: 58%;
+}
+
+.comment-level-7 {
+  width: 51%;
+  min-width: 51%;
+}
+
+.comment-level-8 {
+  width: 44%;
+  min-width: 44%;
+}
+
+.comment-level-9 {
+  width: 37%;
+  min-width: 37%;
+}
+
+.comment-level-10 {
+  width: 30%;
+  min-width: 30%;
+}
+
+.comment-level-11 {
+  width: 23%;
+  min-width: 23%;
+}
+
+.comment-level-12 {
+  width: 16%;
+  min-width: 16%;
 }

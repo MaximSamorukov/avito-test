@@ -30,26 +30,28 @@ class Comment extends React.Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { item, level } = this.props;
     const { showComment } = this.state;
     if (showComment) {
       this.getComment(item);
     }
     const { comment } = this.state;
-    console.log(comment);
+    const options = {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+    };
     const {
       by, text, type, time, kids,
     } = comment;
     console.log(kids);
     return (
       <div onClick={this.onclick} onKeyDown={this.onclick} tabIndex={0} role="button" className="comment-container">
-        <div className="main-comment">
+        <div className={`main-comment comment-level-${level}`}>
           <div className="comment-by">{by}</div>
           <div className="comment-type">{type}</div>
-          <div className="comment-time">{new Date(time).getHours()}</div>
+          <div className="comment-time">{new Date(time * 1000).toLocaleDateString('en', options)}</div>
           <div className="comment-text" dangerouslySetInnerHTML={{ __html: text }} />
         </div>
-        {(kids && kids.length > 0) && kids.map((i) => <Comment item={i} />) }
+        {(kids && kids.length > 0) && kids.map((i) => <Comment item={i} level={level + 1} />) }
       </div>
     );
   }
@@ -57,9 +59,11 @@ class Comment extends React.Component {
 
 Comment.defaultProps = {
   item: [],
+  level: 1,
 };
 
 Comment.propTypes = {
   item: PropTypes.checkPropTypes(),
+  level: PropTypes.checkPropTypes(),
 };
 export default Comment;

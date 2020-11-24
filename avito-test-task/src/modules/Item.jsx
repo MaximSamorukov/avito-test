@@ -38,6 +38,9 @@ class Item extends React.Component {
   render() {
     const { item, showComments } = this.state;
     const { func } = this.props;
+    const options = {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+    };
     let kids = [];
     const {
       title, by, score, type, url, descendants, time,
@@ -47,12 +50,12 @@ class Item extends React.Component {
     }
     const comments = parseInt(descendants, 10) > 1000 ? 'many' : descendants;
     return (
-      <div className="item-container" onClick={func(item)} onKeyDown={func(item)} tabIndex={0} role="button">
+      <div className="item-container">
         <div className="item-body">
           <div className="first-line">
-            <div className="item-element item-title">{title}</div>
+            <div className="item-element item-title" onClick={func(item)} onKeyDown={func(item)} tabIndex={0} role="button">{title}</div>
             <div className="item-element item-author">{`Author: ${by}`}</div>
-            <div className="item-element item-time">{new Date(time).getHours()}</div>
+            <div className="item-element item-time">{new Date(time * 1000).toLocaleDateString('en', options)}</div>
           </div>
           <div className="second-line">
             <div className="item-element item-anchor"><a href={url}>Link</a></div>
@@ -64,7 +67,7 @@ class Item extends React.Component {
             <div className="item-element item-kids">{` Kids: ${kids.length}`}</div>
           </div>
         </div>
-        {(kids.length > 0 && showComments) && kids.map((i) => <Comment item={i} />)}
+        {(kids.length > 0 && showComments) && kids.map((i) => <Comment item={i} level={1} />)}
       </div>
     );
   }

@@ -44,3 +44,11 @@
   align-self: start;
   cursor: pointer;
 }
+
+.page-container {
+  margin-top: 5px;
+  width: 100%;
+  min-width: 100%;
+  border: 1px solid firebrick;
+
+}
