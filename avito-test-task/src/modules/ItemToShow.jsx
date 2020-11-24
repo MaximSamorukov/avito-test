@@ -8,7 +8,7 @@ class ItemToShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComments: false,
+      showComments: true,
     };
   }
 

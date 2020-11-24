@@ -16,6 +16,8 @@ class Comment extends React.Component {
 
   onclick = (e) => {
     console.log(e);
+    const { showComment } = this.state;
+    this.setState({ showComment: !showComment });
   }
 
   async getComment(number) {
