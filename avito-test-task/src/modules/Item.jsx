@@ -39,7 +39,7 @@ class Item extends React.Component {
     const { item, showComments } = this.state;
     const { func } = this.props;
     const options = {
-      year: 'numeric', month: 'numeric', day: 'numeric',
+      year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric',
     };
     let kids = [];
     const {

@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.root {
+  width: 70%;
+  min-width: 674px;
+  margin-right: auto;
+  margin-left: auto;
+}
+

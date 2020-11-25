@@ -34,9 +34,7 @@ class ItemToShow extends React.Component {
     window.clearInterval(key);
   }
 
-  onclick = (kids) => (e) => {
-    console.log(kids);
-    console.log(e.target);
+  onclick = () => () => {
     const { showComments } = this.state;
     this.setState({ showComments: !showComments });
   }
@@ -50,7 +48,6 @@ class ItemToShow extends React.Component {
     const { showComments, item, isUpdate } = this.state;
     let { data } = this.props;
     const { btn } = this.props;
-    // console.log(data);
     if (isUpdate) {
       data = item;
     }
@@ -82,7 +79,7 @@ class ItemToShow extends React.Component {
           </div>
           <div className="third-row">
             <div className="fourth-row">
-              <div className="page-font page-font page-descendants-font page-descendants" onClick={this.onclick(kids)} onKeyDown={this.onclick(kids)} tabIndex={0} role="button">{`Comments: ${comments} `}</div>
+              <div className="page-font page-font page-descendants-font page-descendants" onClick={this.onclick()} onKeyDown={this.onclick()} tabIndex={0} role="button">{`Comments: ${comments} `}</div>
               <div className="page-font page-kids-font page-kids">{` First level comments: ${kids.length}`}</div>
             </div>
             <div className="page-back">{btn}</div>

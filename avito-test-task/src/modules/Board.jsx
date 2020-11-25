@@ -24,19 +24,14 @@ class Board extends React.Component {
   async componentDidMount() {
     const { firstPage, lastPage } = this.state;
     const array = await getData();
-    // console.log(firstPage);
     const news = await array.slice(firstPage, lastPage);
     this.setState({ newsItem: news });
   }
 
   async getNext() {
-    // console.log(e);
     const { lastPage } = this.state;
-    console.log(`lastpage: ${lastPage}`);
     const newFirstPage = lastPage === 500 ? 0 : lastPage;
     const newLastPage = newFirstPage + 100;
-    console.log(`newFP: ${newFirstPage}`);
-    console.log(`newLP: ${newLastPage}`);
     this.setState({ firstPage: newFirstPage, lastPage: newLastPage });
     const array = await getData();
     const news = await array.slice(newFirstPage, newLastPage);
