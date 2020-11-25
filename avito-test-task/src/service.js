@@ -45,4 +45,4 @@ const getItem = async (number) => {
   return item;
 };
 
-module.exports = { getData, getItem };
+export { getData, getItem };
