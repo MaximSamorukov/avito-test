@@ -1,0 +1,107 @@
+.comment-container {
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+  /* background-color: chartreuse; */
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.main-comment {
+  background-color: rgb(248, 255, 200);
+  height: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid chocolate;
+  border-radius: 10px;
+  margin-top: 5px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.8);
+}
+
+.comment-comments {
+  cursor: pointer;
+}
+
+.comment-by {
+  margin-left: 28px;
+  position: relative;
+}
+
+.comment-by::before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 23px;
+  width: 23px;
+  background-image: url('../../assets/ava.svg');
+  background-size: 23px 23px;
+  background-repeat: no-repeat;
+  top: -2px;
+  left: -30px;
+  /* border: 1px solid black;
+  transform: scale(0.5, 0.5); */
+
+
+}
+.comment-level-1 {
+  width: 93%;
+  min-width: 93%;
+}
+
+.comment-level-2 {
+  width: 86%;
+  min-width: 86%;
+}
+
+.comment-level-3 {
+  width: 79%;
+  min-width: 79%;
+}
+
+.comment-level-4 {
+  width: 72%;
+  min-width: 72%;
+}
+
+.comment-level-5 {
+  width: 65%;
+  min-width: 65%;
+}
+
+.comment-level-6 {
+  width: 58%;
+  min-width: 58%;
+}
+
+.comment-level-7 {
+  width: 51%;
+  min-width: 51%;
+}
+
+.comment-level-8 {
+  width: 44%;
+  min-width: 44%;
+}
+
+.comment-level-9 {
+  width: 37%;
+  min-width: 37%;
+}
+
+.comment-level-10 {
+  width: 30%;
+  min-width: 30%;
+}
+
+.comment-level-11 {
+  width: 23%;
+  min-width: 23%;
+}
+
+.comment-level-12 {
+  width: 16%;
+  min-width: 16%;
+}
