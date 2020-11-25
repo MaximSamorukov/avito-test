@@ -1,0 +1,97 @@
+.page-font {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.page-container {
+  width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: flex-start;
+  background-color: rgb(248, 255, 200);
+  border: 1px solid chocolate;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.page-title {
+  font-size: 40px;
+  width: 70%;
+  min-width: 70%;
+}
+
+.page-time {
+  margin-top: 10px;
+}
+
+.page-by, .page-score {
+  margin-left: 25px;
+}
+
+.page-by-font, .page-score-font {
+  font-size: 12px;
+}
+
+.page-kids {
+  margin-left: 40px;
+}
+
+.page-back {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  cursor: pointer;
+  width: 30%;
+  min-width: 30%;
+  text-align: right;
+}
+
+.second-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  min-width: 100%;
+  margin-top: 10px;
+}
+
+.third-row {
+  display: flex;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+  width: 95%;
+  min-width: 95%;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.fourth-row {
+  display: flex;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+  width: 40%;
+  min-width: 40%;
+  flex-wrap: nowrap;
+  margin: 0;
+}
+
+.btn-page-line {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 2px;
+  min-height: 2px;
+  margin-top: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: chocolate;
+}

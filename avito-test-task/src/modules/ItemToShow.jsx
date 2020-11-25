@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import { getItem } from '../service';
-import './styles/item-style.css';
+import './styles/item-page-style.css';
 
 class ItemToShow extends React.Component {
   constructor(props) {
@@ -49,16 +49,17 @@ class ItemToShow extends React.Component {
   render() {
     const { showComments, item, isUpdate } = this.state;
     let { data } = this.props;
+    const { btn } = this.props;
     // console.log(data);
     if (isUpdate) {
       data = item;
     }
     const options = {
-      year: 'numeric', month: 'numeric', day: 'numeric',
+      year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric',
     };
     let kids = [];
     const {
-      title, by, score, type, url, descendants, time,
+      title, by, score, url, descendants, time,
     } = data;
 
     if (descendants > 0) {
@@ -68,27 +69,40 @@ class ItemToShow extends React.Component {
     return (
       <div className="item-container">
         <div className="page-container">
-          <div className="page-title" dangerouslySetInnerHTML={{ __html: title }} />
-          <div className="page-time">{new Date(time * 1000).toLocaleDateString('en', options)}</div>
-          <div className="page-by">{by}</div>
-          <div className="page-score">{score}</div>
-          <div className="page-type">{type}</div>
-          <div className="page-url">{url}</div>
-          <div className="page-kids">{` Kids: ${kids.length}`}</div>
-          <div className="page-descendants" onClick={this.onclick(kids)} onKeyDown={this.onclick(kids)} tabIndex={0} role="button">{`Comments: ${comments} `}</div>
+          <div className="first-line">
+            <div className="page-font page-title-font page-title" dangerouslySetInnerHTML={{ __html: title }} />
+            <div className="page-font page-time-font page-time">{new Date(time * 1000).toLocaleDateString('en', options)}</div>
+          </div>
+          <div className="second-row">
+            <div className="page-font page-by-font page-by">{`Author: ${by}`}</div>
+            <div className="page-font page-score-font page-score">{`Score: ${score}`}</div>
+          </div>
+          <div className="second-line">
+            <div className="page-font page-url-font page-url"><a href={url}>{url}</a></div>
+          </div>
+          <div className="third-row">
+            <div className="fourth-row">
+              <div className="page-font page-font page-descendants-font page-descendants" onClick={this.onclick(kids)} onKeyDown={this.onclick(kids)} tabIndex={0} role="button">{`Comments: ${comments} `}</div>
+              <div className="page-font page-kids-font page-kids">{` First level comments: ${kids.length}`}</div>
+            </div>
+            <div className="page-back">{btn}</div>
+          </div>
         </div>
         {(kids.length > 0 && showComments)
           && kids.map((i) => <Comment item={i} level={1} />)}
+        {(kids.length > 0 && showComments) && <div className="btn-page-line" />}
       </div>
     );
   }
 }
 ItemToShow.defaultProps = {
   data: {},
+  btn: '',
 };
 
 ItemToShow.propTypes = {
   data: PropTypes.checkPropTypes(),
+  btn: PropTypes.checkPropTypes(),
 };
 
 export default ItemToShow;

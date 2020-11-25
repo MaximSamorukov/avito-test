@@ -26,12 +26,13 @@
 }
 
 .btn-line {
-  width: 674px;
-  min-width: 674px;
-  max-width: 674px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   height: 2px;
   min-height: 2px;
-  margin-top: auto;
+  margin-top: 4px;
+  margin-right: auto;
   margin-left: auto;
   background-color: chocolate;
 }

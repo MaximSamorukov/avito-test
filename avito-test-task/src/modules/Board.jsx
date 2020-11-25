@@ -72,13 +72,12 @@ class Board extends React.Component {
       const key = storage.getItem('key');
       window.clearInterval(key);
       storage.setItem('key', null);
+      const BtnBack = <div className="back-btn page-font" role="button" tabIndex={0} onClick={this.getBack.bind(this)} onKeyDown={this.getBack.bind(this)}>Back</div>;
       return (
         <>
           <Header getItemsFromStore={this.getNews} />
           <div className="board-container">
-            <ItemToShow data={itemToShow} />
-            <div className="back-btn" role="button" tabIndex={0} onClick={this.getBack.bind(this)} onKeyDown={this.getBack.bind(this)}>Back</div>
-            <div className="btn-line" />
+            <ItemToShow data={itemToShow} btn={BtnBack} />
           </div>
           <Footer />
         </>
