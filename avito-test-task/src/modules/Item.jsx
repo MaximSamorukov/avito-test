@@ -43,7 +43,7 @@ class Item extends React.Component {
     };
     let kids = [];
     const {
-      title, by, score, type, url, descendants, time,
+      title, by, score, url, descendants, time,
     } = item;
     if (descendants > 0) {
       kids = item.kids;
@@ -54,17 +54,15 @@ class Item extends React.Component {
         <div className="item-body">
           <div className="first-line">
             <div className="item-element item-title" onClick={func(item)} onKeyDown={func(item)} tabIndex={0} role="button">{title}</div>
-            <div className="item-element item-author">{`Author: ${by}`}</div>
             <div className="item-element item-time">{new Date(time * 1000).toLocaleDateString('en', options)}</div>
           </div>
           <div className="second-line">
+            <div className="item-element item-author">{`Author: ${by}`}</div>
             <div className="item-element item-anchor"><a href={url}>Link</a></div>
-            <div className="item-element item-type">{`Type: ${type}`}</div>
           </div>
           <div className="third-line">
-            <div className="item-element item-score">{`Score: ${score}`}</div>
             <div onClick={this.onclick(kids)} onKeyDown={this.onclick(kids)} tabIndex={0} role="button" className="item-element item-comments">{`Comments: ${comments} `}</div>
-            <div className="item-element item-kids">{` Kids: ${kids.length}`}</div>
+            <div className="item-element item-score">{`Score: ${score}`}</div>
           </div>
         </div>
         {(kids.length > 0 && showComments) && kids.map((i) => <Comment item={i} level={1} />)}

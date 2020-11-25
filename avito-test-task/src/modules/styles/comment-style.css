@@ -11,12 +11,41 @@
 }
 
 .main-comment {
-  /* height: 100%; */
-  /* width: 100%; */
-  background-color: chartreuse;
+  background-color: rgb(248, 255, 200);
+  height: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid chocolate;
+  border-radius: 10px;
   margin-top: 5px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.8);
 }
 
+.comment-comments {
+  cursor: pointer;
+}
+
+.comment-by {
+  margin-left: 28px;
+  position: relative;
+}
+
+.comment-by::before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 23px;
+  width: 23px;
+  background-image: url('../../assets/ava.svg');
+  background-size: 23px 23px;
+  background-repeat: no-repeat;
+  top: -2px;
+  left: -30px;
+  /* border: 1px solid black;
+  transform: scale(0.5, 0.5); */
+
+
+}
 .comment-level-1 {
   width: 93%;
   min-width: 93%;

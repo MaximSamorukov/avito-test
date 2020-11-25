@@ -4,9 +4,9 @@
 
 
 .board-container {
-  width: 674px;
+  width: 100%;
   min-width: 674px;
-  max-width: 674px;
+  max-width: 100%;
   margin-right: auto;
   margin-left: auto;
   /* border-bottom: 2px solid chocolate; */

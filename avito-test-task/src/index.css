@@ -2,14 +2,16 @@ body {
   margin: 0;
   font-family: sans-serif;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
 }
 
 .root {
+  width: 70%;
+  min-width: 674px;
   margin-right: auto;
   margin-left: auto;
-  width: 50%;
-  min-width: 50%;
 }
 

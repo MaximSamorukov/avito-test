@@ -24,7 +24,7 @@ class Board extends React.Component {
   async componentDidMount() {
     const { firstPage, lastPage } = this.state;
     const array = await getData();
-    console.log(firstPage);
+    // console.log(firstPage);
     const news = await array.slice(firstPage, lastPage);
     this.setState({ newsItem: news });
   }
@@ -48,6 +48,7 @@ class Board extends React.Component {
     const array = await getData();
     const news = await array.slice(firstPage, lastPage);
     this.setState({ newsItem: news });
+    this.setState({ showPage: false });
   }
 
   getBack() {
@@ -56,20 +57,21 @@ class Board extends React.Component {
 
   render() {
     const { newsItem, showPage, itemToShow } = this.state;
-    const options = {
-      year: 'numeric', month: 'numeric', day: 'numeric',
-    };
     const getItemData = (data) => () => {
       this.setState({
         itemToShow: data,
         showPage: true,
       });
     };
-
-    if (showPage) {
-      // const {
-      //   title, by, score, type, url, descendants, time,
-      // } = itemToShow;
+    const storage = window.localStorage;
+    if (showPage === false && storage.getItem('key') === 'null') {
+      const key = window.setInterval(this.getNews(), 60000);
+      storage.setItem('key', key);
+    }
+    if (showPage === true) {
+      const key = storage.getItem('key');
+      window.clearInterval(key);
+      storage.setItem('key', null);
       return (
         <>
           <Header getItemsFromStore={this.getNews} />

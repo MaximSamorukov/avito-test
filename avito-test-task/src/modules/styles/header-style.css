@@ -4,13 +4,14 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   height: 100%;
-  width: 674px;
+  width: 100%;
   min-width: 674px;
-  max-width: 674px;
+  max-width: 100%;
   background-color: chocolate;
   margin-top: 5px;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 1px;
 }
 
 
@@ -21,7 +22,7 @@
   width: 360px;
   min-width: 360px;
   /* border: 1px solid sandybrown; */
-  margin-top: 5px;
+  margin-top: 7px;
   margin-left: 10px;
   font-size: 15px;
 }
@@ -80,10 +81,16 @@
 }
 
 .login {
+  width: 100%;
+  /* min-width: 50%; */
+  max-width: 100%;
   font-size: 15px;
-  margin-top: 5px;
-  margin-left: 125px;
-  margin-right: 5px;
+  margin-top: 7px;
+  /* margin-right: 5px; */
   cursor: pointer;
+  /* border: 1px solid lawngreen; */
+  text-align: right;
+  padding-right: 5px;
+  box-sizing: border-box;
 }
 

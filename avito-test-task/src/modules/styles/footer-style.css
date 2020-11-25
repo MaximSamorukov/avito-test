@@ -4,9 +4,9 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   height: 100%;
-  width: 674px;
+  width: 100%;
   min-width: 674px;
-  max-width: 674px;
+  max-width: 100%;
   /* background-color: chocolate; */
   margin-top: 5px;
   margin-bottom: 80px;

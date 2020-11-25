@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
-// import { getItem } from '../service';
+import { getItem } from '../service';
 import './styles/item-style.css';
 
 class ItemToShow extends React.Component {
@@ -9,15 +9,29 @@ class ItemToShow extends React.Component {
     super(props);
     this.state = {
       showComments: true,
+      item: {},
+      isUpdate: false,
     };
   }
 
-  componentDidMount() {
-    // const { data } = this.props;
-    // const newItem = getItem(news);
-    // newItem.then((i) => {
-    //   this.setState({ item: i });
-    // });
+  async componentDidMount() {
+    const { data } = this.props;
+    const { id } = data;
+    const updateItem = async (item) => {
+      const newItem = await getItem(item);
+      await this.setState({ item: newItem });
+      await this.setState({ isUpdate: true });
+    };
+    const storage = window.localStorage;
+    const keyPage = window.setInterval(updateItem(id), 60000);
+    storage.setItem('keyPage', keyPage);
+  }
+
+  componentWillUnmount() {
+    const storage = window.localStorage;
+    const key = storage.getItem('keyPage');
+    storage.setItem('keyPage', null);
+    window.clearInterval(key);
   }
 
   onclick = (kids) => (e) => {
@@ -33,8 +47,12 @@ class ItemToShow extends React.Component {
   }
 
   render() {
-    const { showComments } = this.state;
-    const { data } = this.props;
+    const { showComments, item, isUpdate } = this.state;
+    let { data } = this.props;
+    // console.log(data);
+    if (isUpdate) {
+      data = item;
+    }
     const options = {
       year: 'numeric', month: 'numeric', day: 'numeric',
     };
@@ -42,6 +60,7 @@ class ItemToShow extends React.Component {
     const {
       title, by, score, type, url, descendants, time,
     } = data;
+
     if (descendants > 0) {
       kids = data.kids;
     }
@@ -58,7 +77,8 @@ class ItemToShow extends React.Component {
           <div className="page-kids">{` Kids: ${kids.length}`}</div>
           <div className="page-descendants" onClick={this.onclick(kids)} onKeyDown={this.onclick(kids)} tabIndex={0} role="button">{`Comments: ${comments} `}</div>
         </div>
-        {(kids.length > 0 && showComments) && kids.map((i) => <Comment item={i} level={1} />)}
+        {(kids.length > 0 && showComments)
+          && kids.map((i) => <Comment item={i} level={1} />)}
       </div>
     );
   }
