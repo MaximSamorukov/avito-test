@@ -1,7 +1,7 @@
 Тестовое задание, выполненное на позицию стажера Frontend в команду Seller Experience
 
 Ссылка на тестовое задание: https://github.com/avito-tech/sx-frontend-trainee-assignment
-
+Ссылка на деплой: https://determined-noether-6d7cb3.netlify.app/
 
 ## Available Scripts
 
