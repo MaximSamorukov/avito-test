@@ -16,13 +16,15 @@ class Comment extends React.Component {
 
   componentDidMount() {
     const { item } = this.props;
-    console.log(this);
+    // console.log(this);
     this.getComment(item);
   }
 
-  onclick = () => () => {
+  onclick() {
     const { showComment } = this.state;
-    this.setState({ showComment: !showComment });
+    return () => {
+      this.setState({ showComment: !showComment });
+    };
   }
 
   async getComment(number) {
@@ -53,6 +55,7 @@ class Comment extends React.Component {
             <div className="comment-time">{new Date(time * 1000).toLocaleDateString('en', options)}</div>
           </div>
           <div className="second-line">
+            {/* eslint-disable-next-line */}
             <div className="comment-text" dangerouslySetInnerHTML={{ __html: text }} />
           </div>
           <div className="third-line">

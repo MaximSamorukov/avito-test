@@ -67,6 +67,7 @@ class ItemToShow extends React.Component {
       <div className="item-container">
         <div className="page-container">
           <div className="first-line">
+            {/* eslint-disable-next-line */}
             <div className="page-font page-title-font page-title" dangerouslySetInnerHTML={{ __html: title }} />
             <div className="page-font page-time-font page-time">{new Date(time * 1000).toLocaleDateString('en', options)}</div>
           </div>

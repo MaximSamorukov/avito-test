@@ -16,7 +16,7 @@ async function getData() {
       });
       newsArray = (response.data);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
   await getNews();
@@ -38,7 +38,7 @@ const getItem = async (number) => {
       });
       item = await response.data;
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
   await getNews(number);
