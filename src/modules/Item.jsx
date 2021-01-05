@@ -23,9 +23,9 @@ class Item extends React.Component {
     });
   }
 
-  onclick = (kids) => (e) => {
-    console.log(kids);
-    console.log(e.target);
+  onclick = () => () => {
+    // console.log(kids);
+    // console.log(e.target);
     const { showComments } = this.state;
     this.setState({ showComments: !showComments });
   }
